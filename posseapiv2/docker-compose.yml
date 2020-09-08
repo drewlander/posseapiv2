@@ -1,0 +1,13 @@
+version: '3'
+services:
+    web:
+        build: .
+        command: python manage.py runserver 0.0.0.0:8000
+        volumes:
+            - .:/posseapiv2
+        ports:
+            - "8000:8000"
+        environment:
+            - SQLITE_PATH=/posseapiv2/db.sqlite3
+        volumes:
+            - ${SQLITE_PATH}:/posseapiv2/db.sqlite3
